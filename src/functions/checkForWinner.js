@@ -54,7 +54,26 @@ export default function checkForWinner(board) {
 
   // Add additional winner checking logic here...
   // Under what conditions can someone win?
+  for (let col = 0; col < board[0].length; col++) {
+    let firstCell = board[0][col];
 
+    // Skip rows with empty first spaces
+    if (firstCell === null) {
+      continue;
+    }
+
+    let isWinningCol = true;
+    for (let row = 1; row < board.length; row++) {
+      if (board[row][col] !== firstCell) {
+        isWinningCol = false;
+        break;
+      }
+    }
+
+    if (isWinningCol) {
+      return firstCell;  // return player found in winning row
+    }
+  }
 
   // Return null if no winners
   return null;
