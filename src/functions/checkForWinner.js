@@ -75,6 +75,8 @@ export default function checkForWinner(board) {
     }
   }
 
+  //add stuff for diagonals
+
   // Return null if no winners
   return null;
 }
